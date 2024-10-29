@@ -1,0 +1,93 @@
+body {
+    background-color: #1e1e1e;
+    color: #f5a623;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden; /* Ukryj przewijanie w poziomie */
+}
+
+header {
+    background-color: #000;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Dodaj cień */
+}
+
+h1 {
+    margin: 0;
+    font-size: 3em;
+    color: #f5a623;
+    text-shadow: 2px 2px 10px rgba(255, 165, 0, 0.5); /* Cień tekstu */
+}
+
+section.movies {
+    padding: 30px 0;
+    animation: fadeIn 1s; /* Dodaj animację wejścia */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.movie {
+    margin: 20px auto;
+    max-width: 600px;
+    position: relative; /* Pozycjonowanie dla efektu */
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.movie-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s; /* Animacja powiększenia */
+}
+
+.movie-image:hover {
+    transform: scale(1.05); /* Powiększenie na hover */
+    box-shadow: 0 0 30px rgba(255, 165, 0, 0.8); /* Zmiana cienia */
+}
+
+.movie-image img {
+    width: 100%;
+    transition: transform 0.3s; /* Dodaj animację na obraz */
+}
+
+.movie-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.movie-image:hover img {
+    transform: scale(1.1); /* Powiększenie obrazu na hover */
+}
+
+.movie-image:hover .movie-info {
+    opacity: 1; /* Pokazanie informacji o filmie */
+}
+
+footer {
+    background-color: #000;
+    color: #888;
+    padding: 10px;
+}
+
+footer p {
+    margin: 0;
+}

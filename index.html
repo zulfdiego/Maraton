@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Halloweenowa Strona Powitalna</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #eaeaea;
+            font-family: 'Creepster', cursive; 
+            position: relative;
+            overflow: hidden; 
+            text-align: center; 
+            background-color: black; 
+        }
+
+       
+        .pumpkin {
+            position: absolute;
+            width: 50px; 
+            height: 50px; 
+            font-size: 50px; 
+            opacity: 0.8; 
+            animation: wobble 0.2s infinite; 
+        }
+
+        @keyframes wobble {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(5deg); }
+            100% { transform: rotate(-5deg); }
+        }
+
+        .ticket {
+            display: inline-block;
+            padding: 20px;
+            background-color: rgba(255, 0, 0, 0.8); 
+            color: white;
+            border: 2px solid rgba(255, 69, 0, 0.8); 
+            border-radius: 10px;
+            font-size: 2em; 
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+            position: relative;
+            z-index: 1; 
+            margin-bottom: 20px; 
+        }
+
+        .ticket:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 1);
+        }
+
+        @keyframes explode {
+            0% {
+                transform: scale(1);
+            }
+            80% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0; /
+            }
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 5;
+        }
+    </style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    <a class="ticket" id="ticketButton">🎟️ Zaproszenie na Maraton 👻</a>
+
+    <audio id="scarySound" src="https://www.soundjay.com/misc/sounds/squeeze-toy-1.mp3"></audio>
+
+    <script>
+        const ticketButton = document.getElementById('ticketButton');
+        const scarySound = document.getElementById('scarySound');
+
+        
+        function createPumpkin() {
+            const pumpkin = document.createElement('div');
+            pumpkin.className = 'pumpkin';
+            pumpkin.textContent = '🎃'; 
+            document.body.appendChild(pumpkin);
+
+            
+            const startX = Math.random() * (window.innerWidth - 50); 
+            const startY = Math.random() * (window.innerHeight - 50); 
+            pumpkin.style.left = startX + 'px';
+            pumpkin.style.top = startY + 'px';
+
+          
+            let angle = Math.random() * 360; 
+            const speed = 1 + Math.random() * 2; 
+
+            function animate() {
+                angle += speed; 
+                const radius = 100; 
+                const x = Math.cos(angle * Math.PI / 180) * radius; 
+                const y = Math.sin(angle * Math.PI / 180) * radius; 
+
+                
+                pumpkin.style.left = startX + x + 'px';
+                pumpkin.style.top = startY + y + 'px';
+
+                
+                if (parseInt(pumpkin.style.left) < 0 || parseInt(pumpkin.style.left) > window.innerWidth - 50 ||
+                    parseInt(pumpkin.style.top) < 0 || parseInt(pumpkin.style.top) > window.innerHeight - 50) {
+                    startX = Math.random() * (window.innerWidth - 50);
+                    startY = Math.random() * (window.innerHeight - 50);
+                    angle = Math.random() * 360; 
+                }
+
+                requestAnimationFrame(animate); 
+            }
+
+            animate();
+        }
+
+        
+        setInterval(createPumpkin, 200); 
+
+        ticketButton.addEventListener('click', () => {
+            
+            scarySound.play();
+
+            
+            ticketButton.style.animation = 'explode 0.5s forwards'; 
+
+            
+            setTimeout(() => {
+                
+                window.location.href = "movies.html"; 
+            }, 500); 
+        });
+    </script>
+</body>
+</html>

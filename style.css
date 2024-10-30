@@ -5,20 +5,20 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
-    overflow-x: hidden; /* Ukryj przewijanie w poziomie */
+    overflow-x: hidden; 
 }
 
 header {
     background-color: #000;
     padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Dodaj cień */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); 
 }
 
 h1 {
     margin: 0;
     font-size: 3em;
     color: #f5a623;
-    text-shadow: 2px 2px 10px rgba(255, 165, 0, 0.5); /* Cień tekstu */
+    text-shadow: 2px 2px 10px rgba(255, 165, 0, 0.5); 
 }
 
 .announcement {
@@ -54,15 +54,15 @@ h1 {
 .warning {
     color: #f5a623;
     font-size: 1.5em;
-    text-transform: uppercase; /* Duże litery */
+    text-transform: uppercase; 
     margin: 20px auto;
-    max-width: 800px; /* Maksymalna szerokość */
-    text-align: center; /* Wyśrodkowanie */
+    max-width: 800px; 
+    text-align: center; 
 }
 
 section.movies {
     padding: 30px 0;
-    animation: fadeIn 1s; /* Dodaj animację wejścia */
+    animation: fadeIn 1s; 
 }
 
 @keyframes fadeIn {
@@ -73,7 +73,7 @@ section.movies {
 .movie {
     margin: 20px auto;
     max-width: 600px;
-    position: relative; /* Pozycjonowanie dla efektu */
+    position: relative; 
     overflow: hidden;
     border-radius: 15px;
 }
@@ -83,17 +83,17 @@ section.movies {
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s; /* Animacja powiększenia */
+    transition: transform 0.3s, box-shadow 0.3s; 
 }
 
 .movie-image:hover {
-    transform: scale(1.05); /* Powiększenie na hover */
-    box-shadow: 0 0 30px rgba(255, 165, 0, 0.8); /* Zmiana cienia */
+    transform: scale(1.05); 
+    box-shadow: 0 0 30px rgba(255, 165, 0, 0.8); 
 }
 
 .movie-image img {
     width: 100%;
-    transition: transform 0.3s; /* Dodaj animację na obraz */
+    transition: transform 0.3s; 
 }
 
 .movie-info {
@@ -114,11 +114,11 @@ section.movies {
 }
 
 .movie-image:hover img {
-    transform: scale(1.1); /* Powiększenie obrazu na hover */
+    transform: scale(1.1); 
 }
 
 .movie-image:hover .movie-info {
-    opacity: 1; /* Pokazanie informacji o filmie */
+    opacity: 1; 
 }
 
 footer {
